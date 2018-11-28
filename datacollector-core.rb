@@ -1,4 +1,4 @@
-class StreamsetsDatacollector < Formula
+class DatacollectorCore < Formula
     desc "DataOps Platform for Modern Data Movement"
     homepage "https://streamsets.com"
     url "https://archives.streamsets.com/datacollector/3.6.0/tarball/streamsets-datacollector-core-3.6.0.tgz"
