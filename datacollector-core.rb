@@ -1,8 +1,8 @@
 class DatacollectorCore < Formula
     desc "DataOps Platform for Modern Data Movement"
     homepage "https://streamsets.com"
-    url "https://archives.streamsets.com/datacollector/3.7.2/tarball/streamsets-datacollector-core-3.7.2.tgz"
-    sha256 "9e077187ab71f772e2791d21c52ea131b5d0f5d4bed72eee326ba1c592f912fc"
+    url "https://archives.streamsets.com/datacollector/3.8.0/tarball/streamsets-datacollector-core-3.8.0.tgz"
+    sha256 "c81548ae5042a06e31f4d438d72c1800028bee828591500c2e09fe7df6dcd9f8"
   
     bottle :unneeded
   
@@ -17,9 +17,18 @@ class DatacollectorCore < Formula
         s.gsub! "#export SDC_DATA=/var/lib/sdc", "export SDC_DATA=#{var}/lib/sdc"
         s.gsub! "#export SDC_RESOURCES=/var/lib/sdc-resources", "export SDC_RESOURCES=#{var}/lib/sdc-resources"
         s.gsub! "#export SDC_CONF=/etc/sdc", "export SDC_CONF=#{etc}/sdc"
+        s << %Q{
+          export SDC_DIST=#{opt_prefix}
+          export USER_LIBRARIES_DIR=#{var}/lib/sdc-user-libs
+        }
       end
+
+      mkpath "#{var}/lib/sdc-user-libs"
+      mkpath "#{var}/lib/sdc-resources"
   
       (etc/"sdc").install Dir["#{prefix}/etc/*"]
+
+      ohai "For ease of use source #{opt_prefix}/libexec/sdc-env.sh in your .bashrc"
     end
   
     plist_options :manual => "streamsets"
