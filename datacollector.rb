@@ -1,8 +1,8 @@
 class Datacollector < Formula
     desc "DataOps Platform for Modern Data Movement"
     homepage "https://streamsets.com"
-    url "https://archives.streamsets.com/datacollector/3.8.2/tarball/streamsets-datacollector-all-3.8.2.tgz"
-    sha256 "f9952f8d75fafe900f0b53e0aea8d712f6df551a66d646b3e313f8f2300261b0"
+    url "https://archives.streamsets.com/datacollector/3.9.0/tarball/streamsets-datacollector-all-3.9.0.tgz"
+    sha256 "385f0e953d9209c2f1e287d44a3e21e688d20816cde69d82c107bf4fc374ebc1"
   
     bottle :unneeded
   
