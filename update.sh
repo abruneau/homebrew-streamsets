@@ -17,10 +17,11 @@ rm streamsets-datacollector-core-${tag}.tgz
 
 wget https://archives.streamsets.com/datacollector/${tag}/tarball/streamsets-datacollector-all-${tag}.tgz
 export sha256=$(shasum -a 256 streamsets-datacollector-all-${tag}.tgz | awk '{print $1}')
-sed -i '' "s/url.*/url \"https\:\/\/archives.streamsets.com\/datacollector\/${tag}\/tarball\/streamsets-datacollector-core-${tag}.tgz\"/" datacollector.rb
+sed -i '' "s/url.*/url \"https\:\/\/archives.streamsets.com\/datacollector\/${tag}\/tarball\/streamsets-datacollector-all-${tag}.tgz\"/" datacollector.rb
 sed -i '' "s/sha256.*/sha256 \"${sha256}\"/" datacollector.rb
 rm streamsets-datacollector-all-${tag}.tgz
 
 git add *
 git commit -m "Update to version ${tag}"
+git tag ${tag}
 git push
