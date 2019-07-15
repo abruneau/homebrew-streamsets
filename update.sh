@@ -21,6 +21,12 @@ sed -i '' "s/url.*/url \"https\:\/\/archives.streamsets.com\/datacollector\/${ta
 sed -i '' "s/sha256.*/sha256 \"${sha256}\"/" datacollector.rb
 rm streamsets-datacollector-all-${tag}.tgz
 
+wget https://archives.streamsets.com/datacollector/${tag}/tarball/SDCe/streamsets-datacollector-edge-${tag}-darwin-amd64.tgz
+export sha256=$(shasum -a 256 streamsets-datacollector-edge-${tag}-darwin-amd64.tgz | awk '{print $1}')
+sed -i '' "s/url.*/url \"https\:\/\/archives.streamsets.com\/datacollector\/${tag}\/tarball\/SDCe\/streamsets-datacollector-edge-${tag}-darwin-amd64.tgz\"/" datacollector-edge.rb
+sed -i '' "s/sha256.*/sha256 \"${sha256}\"/" datacollector-edge.rb
+rm streamsets-datacollector-edge-${tag}-darwin-amd64.tgz
+
 git add *
 git commit -m "Update to version ${tag}"
 git tag ${tag}
