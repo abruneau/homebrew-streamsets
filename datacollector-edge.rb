@@ -1,8 +1,8 @@
 class DatacollectorEdge < Formula
     desc "DataOps Platform for Modern Data Movement"
     homepage "https://streamsets.com"
-    url "https://archives.streamsets.com/datacollector/3.10.1/tarball/SDCe/streamsets-datacollector-edge-3.10.1-darwin-amd64.tgz"
-    sha256 "addfcdb7453a1c4d3167a2fa7514a70a20e92ea6ecbe90d059311ee22290196c"
+    url "https://archives.streamsets.com/datacollector/3.11.0/tarball/SDCe/streamsets-datacollector-edge-3.11.0-darwin-amd64.tgz"
+    sha256 "1ebb8867140337ff836c143344aefddcbf842cd7af3224837f65c2e32178cdd2"
   
     bottle :unneeded
   
