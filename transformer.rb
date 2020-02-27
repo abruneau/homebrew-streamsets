@@ -9,6 +9,8 @@ class Transformer < Formula
     depends_on :java => "1.8"
 
     def install
+        # rename streamsets command to distinguish from sdc command 
+        mv "bin/streamsets", "bin/streamsets-transformer"
         prefix.install Dir["*"]
 
         inreplace "#{libexec}/transformer-env.sh" do |s|
@@ -43,7 +45,7 @@ class Transformer < Formula
           <true/>
           <key>ProgramArguments</key>
           <array>
-            <string>#{opt_bin}/streamsets</string>
+            <string>#{opt_bin}/streamsets-transformer</string>
             <string>transformer</string>
           </array>
         </dict>
@@ -52,7 +54,7 @@ class Transformer < Formula
     end
 
     test do
-        system bin/"streamsets", "stagelibs", "-list"
+        system bin/"streamsets-transformer", "stagelibs", "-list"
     end
 
 end
