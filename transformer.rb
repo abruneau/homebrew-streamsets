@@ -1,4 +1,4 @@
-class Transfromer < Formula
+class Transformer < Formula
     desc "DataOps Platform for Modern Data Movement"
     homepage "https://streamsets.com"
     url "https://archives.streamsets.com/transformer/3.12.0/tarball/streamsets-transformer-all-3.12.0.tgz"
