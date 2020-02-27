@@ -2,7 +2,7 @@ class Transfromer < Formula
     desc "DataOps Platform for Modern Data Movement"
     homepage "https://streamsets.com"
     url "https://archives.streamsets.com/transformer/3.12.0/tarball/streamsets-transformer-all-3.12.0.tgz"
-    sha256 "66bd1a00027bce4ef29055a6c35d07ecfe99afe41c8d16522c5b8fe40c5602f0"
+    sha256 ""
 
     bottle :unneeded
   

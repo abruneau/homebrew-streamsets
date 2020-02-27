@@ -16,7 +16,7 @@ else
     exit 0
 fi
 
-if [ $product == "sdc" ]; then
+if [ "$product" == "sdc" ]; then
 
     wget https://archives.streamsets.com/datacollector/${tag}/tarball/streamsets-datacollector-core-${tag}.tgz
     export sha256=$(shasum -a 256 streamsets-datacollector-core-${tag}.tgz | awk '{print $1}')
@@ -36,7 +36,7 @@ if [ $product == "sdc" ]; then
     sed -i '' "s/sha256.*/sha256 \"${sha256}\"/" datacollector-edge.rb
     rm streamsets-datacollector-edge-${tag}-darwin-amd64.tgz
 
-elif [ $product == "transfromer" ]; then
+elif [ "$product" == "transformer" ]; then
     wget https://archives.streamsets.com/transformer/${tag}/tarball/streamsets-transformer-all-${tag}.tgz
     export sha256=$(shasum -a 256 /tarball/streamsets-transformer-all-${tag}.tgz | awk '{print $1}')
     sed -i '' "s/url.*/url \"https\:\/\/archives.streamsets.com\/transformer\/${tag}\/tarball\/streamsets-transformer-all-${tag}.tgz\"/" transformer.rb
@@ -44,7 +44,7 @@ elif [ $product == "transfromer" ]; then
     rm streamsets-transformer-all-${tag}.tgz
 
 else
-    print "Unknown product"
+    echo "Unknown product ${product}"
 fi
 
 git add *
